@@ -1,0 +1,38 @@
+/*
+ * @Author: liuxiang
+ * @Date: 2026-01-30 15:53:27
+ * @LastEditors: liuxiang
+ * @LastEditTime: 2026-01-31 23:37:36
+ * @Description: file content
+ */
+import { useMemoizedFn } from '@td-design/rn-hooks';
+
+
+import useLogout from './useLogout';
+
+export function useError() {
+  const logout = useLogout();
+
+  const convertErrorMsg = useMemoizedFn((error: unknown) => {
+    try {
+      // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html#unknown-on-catch-clause-bindings
+      if (error instanceof Error) {
+        if (error.message.toLocaleLowerCase() === 'network request failed') {
+          return '网络请求失败';
+        } else if (error.message.toLocaleLowerCase().includes('timeout of')) {
+          return '网络请求超时';
+        }
+        const { message } = JSON.parse(error.message);
+        return message;
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        return error.message;
+      }
+    }
+  });
+
+  return {
+    convertErrorMsg,
+  };
+}

@@ -1,0 +1,13 @@
+**/*.svg
+**/*.ejs
+**/*.html
+**/*.json
+**/*.jsx
+package.json
+*.yaml
+
+example
+lib
+.changeset
+docs
+api/**/*

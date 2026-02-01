@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/D-DIN-PRO Regular.otf",
+      "sha1": "9154a59e01db20b0a61a98afcb9cd52af03c2a0f"
+    },
+    {
+      "path": "assets/fonts/D-DIN-PRO-600.otf",
+      "sha1": "77d2522f34a7702a8e433757f8146c6596412bc0"
+    },
+    {
+      "path": "assets/fonts/D-DIN-PRO-700-Bold.otf",
+      "sha1": "307f0a813815d2cb392a12ad3f13e28c019c77d0"
+    },
+    {
+      "path": "assets/fonts/PingFang SC Regular.ttf",
+      "sha1": "f47ab9c6b6d39b720155c1d5f0a7f6f3a05d7dec"
+    },
+    {
+      "path": "assets/fonts/Roboto-Regular.ttf",
+      "sha1": "ba879317acdc045b8fa78cb8f948650627d0477c"
+    },
+    {
+      "path": "assets/fonts/字体家AI造字吉草.ttf",
+      "sha1": "9ddd6e3681a0d474beec748adc315356db9175a2"
+    }
+  ]
+}
