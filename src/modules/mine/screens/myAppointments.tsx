@@ -2,7 +2,7 @@
  * @Author: liuxiang
  * @Date: 2026-02-01 22:00:00
  * @LastEditors: liuxiang
- * @LastEditTime: 2026-02-01 22:40:47
+ * @LastEditTime: 2026-02-02 10:10:00
  * @Description: file content
  */
 import React from 'react';
@@ -23,7 +23,7 @@ export function MyAppointments() {
     const dispatch = useDispatch();
     const statusBarHeight = StatusBar.currentHeight;
 
-    const appointments = useSelector((state: RootState) => selectAllAppointments(state));
+    const appointments: Appointment[] = useSelector((state: RootState) => [...selectAllAppointments(state)].reverse());
 
     const handleCancelAppointment = (appointment: Appointment) => {
         dispatch(updateAppointment({

@@ -2,17 +2,17 @@
  * @Author: liuxiang
  * @Date: 2026-02-01 02:13:42
  * @LastEditors: liuxiang
- * @LastEditTime: 2026-02-01 22:23:21
+ * @LastEditTime: 2026-02-02 09:39:31
  * @Description: file content
  */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, Box, helpers, Flex, Button, WingBlank, Toast } from '@td-design/react-native';
 import { StyleSheet, ScrollView, StatusBar } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import TitleBar from '@/components/TitleBar/titleBar';
 import { Container } from '@/components/Container';
-import { NavigationProp, useNavigation, useRoute, useFocusEffect } from '@react-navigation/native';
+import { NavigationProp, useNavigation, useRoute } from '@react-navigation/native';
 import { addAppointment, Appointment } from '@/store/slices/appointSlice';
 const { px } = helpers;
 
@@ -30,21 +30,16 @@ export function SubmitAppoint() {
 
 
     const route = useRoute();
-    useFocusEffect(
-        React.useCallback(() => {
-            const params = route.params as { detail?: SubmitAppointObj };
-            if (params?.detail) {
-                setDoctorName(params.detail.doctorName);
-                setTimezone(params.detail.timezone);
-                setDate(params.detail.date);
-                setStartTime(params.detail.startTime);
-                setEndTime(params.detail.endTime);
-            }
-            return () => {
-                // 清理函数（可选）
-            };
-        }, [route.params])
-    );
+    useEffect(() => {
+        const params = route.params as { detail?: SubmitAppointObj };
+        if (params?.detail) {
+            setDoctorName(params.detail.doctorName);
+            setTimezone(params.detail.timezone);
+            setDate(params.detail.date);
+            setStartTime(params.detail.startTime);
+            setEndTime(params.detail.endTime);
+        }
+    }, [route.params]);
 
     const handleConfirm = () => {
         if (!doctorName || !date || !startTime || !endTime) {
@@ -66,7 +61,7 @@ export function SubmitAppoint() {
         };
 
         dispatch(addAppointment(newAppointment));
-        
+
         Toast.middle({
             content: 'Appointment confirmed successfully!',
             duration: 2000,

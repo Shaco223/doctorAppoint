@@ -2,7 +2,7 @@
  * @Author: liuxiang
  * @Date: 2026-01-31 16:26:59
  * @LastEditors: liuxiang
- * @LastEditTime: 2026-02-01 02:42:57
+ * @LastEditTime: 2026-02-02 09:44:27
  * @Description: file content
  */
 import React from 'react';
@@ -21,7 +21,7 @@ export function Fallback() {
     <Container>
       <Box flex={1} justifyContent="center" alignItems="center">
         <ActivityIndicator animating size="large" color={theme.colors.primary200} />
-        <Text>加载中...</Text>
+        <Text>loading...</Text>
       </Box>
     </Container>
   );

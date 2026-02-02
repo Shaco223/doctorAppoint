@@ -1,3 +1,10 @@
+/*
+ * @Author: liuxiang
+ * @Date: 2026-01-30 15:53:26
+ * @LastEditors: liuxiang
+ * @LastEditTime: 2026-02-02 10:13:27
+ * @Description: file content
+ */
 import Config from 'react-native-config';
 
 import axios from 'axios';
@@ -74,10 +81,10 @@ export const initRequest = () => {
     error => {
       if (error.code === 'ECONNABORTED' && error.message.indexOf('timeout') !== -1) {
         // 请求超时错误处理
-        return Promise.reject(new Error(JSON.stringify({ message: '请求超时，请重试' })));
+        return Promise.reject(new Error(JSON.stringify({ message: 'request timeout, please try again' })));
       } else {
         // 其他错误处理
-        return Promise.reject(new Error(JSON.stringify({ message: '请求出错，请重试' })));
+        return Promise.reject(new Error(JSON.stringify({ message: 'request failed, please try again' })));
       }
     }
   );
